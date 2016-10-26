@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('componentes/crear', 'ComponenteController@create');
+Route::post('componentes/guardar', 'ComponenteController@store');
