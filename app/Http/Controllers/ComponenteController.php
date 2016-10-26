@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models;
+use App\Models\Componente;
+
 class ComponenteController extends Controller
 {
     /**
@@ -40,6 +41,7 @@ class ComponenteController extends Controller
         $componente->Descripcion = $request->descripcion;
         $componente->Importe = $request->importe;
         $componente->IdBien = 1;
+        $componente->save();
     }
 
     /**
