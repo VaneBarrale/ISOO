@@ -1,11 +1,11 @@
 <?php  
 
-namespace App\Models;
-use Illuminate\Database\Eloquent\Model;
+	namespace App\Models;
+	use Illuminate\Database\Eloquent\Model;
 
-class Mantenimiento extends Model
+	class Mantenimiento extends Model
 	{
-	protected $table = "Mantenimiento";
+		protected $table = "Mantenimiento";
 	}
 
 ?>
