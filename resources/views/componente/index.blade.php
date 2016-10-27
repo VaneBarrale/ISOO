@@ -1,4 +1,5 @@
-<h1>Listado de Componentes</h1>
+<h1><strong>COMPONENTES</strong></h1>
+
 @foreach($componentes as $componente) 
 	<table>
 	  	<tr>
