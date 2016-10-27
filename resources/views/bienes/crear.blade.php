@@ -1,8 +1,10 @@
-<html>
-    <body>
-    <form method="POST" action="/bienes/guardar">
-    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-    	<label>Descripcion:</label>
+@extends('layouts.app')
+@section('layouts.sidebar')
+@section('layout.header')
+@section('content')
+   <form method="POST" action="/bienes/guardar">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <label>Descripcion:</label>
         <input type="text" name="descripcion"><br>
         
         <label>Fecha</label>
@@ -14,7 +16,6 @@
         <br>
         <input type="submit" value="Guardar">
     </form>
+@stop
+    
     	
-
-    </body>
-</html>

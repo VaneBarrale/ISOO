@@ -15,6 +15,9 @@ class BienesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $layout = 'layouts.app';
+
     public function index()
     {
         $bienes = Bien::all();
@@ -28,7 +31,8 @@ class BienesController extends Controller
      */
     public function create()
     {
-        return view('bienes.crear');
+
+        return \View::make('bienes.crear');
     }
 
     /**

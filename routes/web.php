@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('/bienes/crear','BienesController@create');
 Route::post('/bienes/guardar','BienesController@store');
 Route::get('/bienes','BienesController@index');
+
