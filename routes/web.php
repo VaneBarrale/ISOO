@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('componentes/crear', 'ComponenteController@create');
 Route::post('componentes/guardar', 'ComponenteController@store');
+Route::get('/componentes','ComponenteController@index');

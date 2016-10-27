@@ -16,7 +16,8 @@ class ComponenteController extends Controller
      */
     public function index()
     {
-        //
+         $componente = Componente::all(); //creo la lista
+        return view('componente.index')->with('componentes', $componente); //recorro la lista desde la vista
     }
 
     /**
