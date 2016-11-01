@@ -10,6 +10,19 @@ use App\Models\Componente;
 class ComponenteController extends Controller
 {
     /**
+     * Related routes.
+     */
+    const COMPONENTE_ROUTE = 'componentes/';
+
+    /**
+     * Related views.
+     */
+    const COMPONENTE_INDEX_VIEW  = 'componente.index';
+    const COMPONENTE_CREATE_VIEW = 'componente.create';
+    const COMPONENTE_EDIT_VIEW   = 'componente.edit';
+    const COMPONENTE_SHOW_VIEW   = 'componente.show';
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -17,7 +30,7 @@ class ComponenteController extends Controller
     public function index()
     {
          $componente = Componente::all(); //creo la lista
-        return view('componente.index')->with('componentes', $componente); //recorro la lista desde la vista
+        return view(self::COMPONENTE_INDEX_VIEW)->with('componentes', $componente); //recorro la lista desde la vista
     }
 
     /**
@@ -27,7 +40,7 @@ class ComponenteController extends Controller
      */
     public function create()
     {
-        return view('componente.crear');
+        return view(self::COMPONENTE_CREATE_VIEW);
     }
 
     /**
@@ -53,7 +66,10 @@ class ComponenteController extends Controller
      */
     public function show($id)
     {
-        //
+        $componente = Componente::findOrFail($id);
+
+        return view(self::COMPONENTE_SHOW_VIEW)
+            ->with('componentes', $componente);
     }
 
     /**
@@ -64,7 +80,10 @@ class ComponenteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $componente = Componente::findOrFail($id);
+
+        return view(self::BOOKS_EDIT_VIEW)
+            ->with('componentes', $componente);
     }
 
     /**
@@ -76,7 +95,18 @@ class ComponenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $componente = Componente::findOrFail($id);
+            $componente->setDescripcion($request->descripcion);
+            $componente->setImporte($request->importe);
+            $componente->save();
+
+            Session::flash('success', trans('componente.updated_message'));
+        } catch (Exception $e) {
+            Session::flash('error', trans('componente.not_updated_message'));
+        }
+
+        return redirect()->to(self::COMPONENTE_ROUTE);
     }
 
     /**
@@ -87,6 +117,15 @@ class ComponenteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $componente = Componente::findOrFail($id);
+            $componente->delete();
+
+            Session::flash('success', trans('componente.removed_message'));
+        } catch (Exception $e) {
+            Session::flash('error', trans('componente.not_removed_message'));
+        }
+        
+        return redirect()->to(self::BOOK_ROUTE);
     }
 }

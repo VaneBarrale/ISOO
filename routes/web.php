@@ -14,10 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/componentes','ComponenteController@index');
 Route::get('componentes/crear', 'ComponenteController@create');
 Route::post('componentes/guardar', 'ComponenteController@store');
-Route::get('/componentes','ComponenteController@index');
+
 
 Route::get('mantenimientos/crear', 'MantenimientoController@create');
 Route::post('mantenimientos/guardar', 'MantenimientoController@store');
