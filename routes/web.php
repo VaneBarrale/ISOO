@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/rubros/crear', 'RubroController@create');
 Route::post('/rubros/guardar', 'RubroController@store');
 Route::get('/rubros','RubroController@index');
+Route::get('/rubros/editar/{id}','RubroController@edit');
+Route::put('/rubros/actualizar','RubroController@update');

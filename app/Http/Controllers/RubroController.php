@@ -64,7 +64,8 @@ class RubroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rubro = Rubro::findOrFail($id);
+        return view('rubro.editar', ['rubro' => $rubro]);
     }
 
     /**
@@ -74,9 +75,14 @@ class RubroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $rubro = Rubro::findOrFail($request->id);
+        $rubro->timestamps = false;
+        $rubro->Descripcion = $request->descripcion;
+        $rubro->Nombre = $request->nombre;
+        $rubro->save();
+        return redirect('/rubros');
     }
 
     /**
