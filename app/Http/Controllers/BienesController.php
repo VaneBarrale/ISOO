@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Models\Bien;
+use App\Models\Rubro;
 
 class BienesController extends Controller
 {
@@ -31,8 +32,9 @@ class BienesController extends Controller
      */
     public function create()
     {
+        $rubros = Rubro::all();
 
-        return \View::make('bienes.crear');
+        return \View::make('bienes.crear',['rubros'=> $rubros]);
     }
 
     /**
