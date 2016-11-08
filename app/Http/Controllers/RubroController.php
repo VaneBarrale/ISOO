@@ -77,12 +77,14 @@ class RubroController extends Controller
      */
     public function update(Request $request)
     {
-        $rubro = Rubro::findOrFail($request->id);
-        $rubro->timestamps = false;
-        $rubro->Descripcion = $request->descripcion;
-        $rubro->Nombre = $request->nombre;
-        $rubro->save();
+        Rubro::where('Id',$request->id)
+                ->update(['Descripcion' => $request->descripcion]);
+        Rubro::where('Id',$request->id)
+                ->update(['Nombre' => $request->nombre]);
+                
+                
         return redirect('/rubros');
+        
     }
 
     /**
@@ -93,6 +95,10 @@ class RubroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Rubro::destroy($id);
+        dd("Eliminado:" . $id);
+        
+        return redirect('/rubros');
     }
 }
+

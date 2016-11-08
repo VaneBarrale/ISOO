@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	<form method="PUT" action="/rubros/actualizar">
+	<form method="POST" action="/rubros/actualizar">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="id" value="{{$rubro->Id}}">
 
