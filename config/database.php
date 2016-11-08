@@ -58,7 +58,11 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'ISOOPRODB'),
             'username' => env('DB_USERNAME', 'root'),
+<<<<<<< HEAD
             'password' => env('DB_PASSWORD', 'vanesa'),
+=======
+            'password' => env('DB_PASSWORD', 'ty6ncufe5'),
+>>>>>>> master
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
