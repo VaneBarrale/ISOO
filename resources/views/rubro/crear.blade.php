@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('layouts.app')
+@section('layouts.sidebar')
+@section('layout.header')
+@section('content')
+	<form method="POST" class="form-horizontal" action="/rubros/guardar">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<div class="form-group">
+			<label class="col-md-3 control-label">Descripcion:</label>
+			<div class="col-md-3 control-label">
+				<input type="text" class="form-control" name="descripcion">
+			</div>
 
-	<form method="POST" action="/rubros/guardar">
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<label>Descripcion:</label>
-		<input type="text" name="descripcion"><br>
+		</div>
+		<div class="form-group">
+			<label class="col-md-3 control-label">Nombre:</label>
+			<div class="col-md-3 control-label">
+				<input type="text" class="form-control" name="nombre">
+			</div>
 
-		<label>Nombre:</label>
-		<input type="text" name="nombre"><br>
-		<input type="submit" value="Guardar">
+		</div>
 
+		<input type="submit" value="Guardar" class="btn btn-sm btn-success">
 	</form>
-
-</body>
-</html>
+@stop
